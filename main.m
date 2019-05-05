@@ -31,3 +31,10 @@ for i = 1:numel(stocks)
     adj = [adj stocks(i).AdjClose];
     vol = [vol stocks(i).Volume];
 end
+
+%%
+start_date = '01042018'; 
+end_date = '01042019'; 
+tics = tics_arr(1:5);
+
+[tics, date, open, high, low, close, adj, vol] = get_stock_mat(start_date, end_date, tics);
