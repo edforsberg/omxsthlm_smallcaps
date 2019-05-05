@@ -1,17 +1,33 @@
-stocks = readtable('tickers_st.txt'); 
-stocks = table2array(stocks); 
+%% setting up tickers
 
-stocks = stocks(1:100); 
+tics = readtable('tickers_st.txt'); 
+tics_arr = table2array(tics); 
+
+tics_arr = tics_arr(1:100); 
 
 
-%%
+%% downloading stock data
 startDate = '01042018'; 
 endDate = '01042019'; 
-stocks = stocks(1:100); 
-stocks = hist_stock_data(startDate,endDate,stocks);
+tics_arr = tics_arr(1:5); 
+stocks = hist_stock_data(startDate,endDate,tics_arr);
+
+
+%% rearanging data strcture to matrices 
+
+date = cell2mat(stocks(1).Date); 
+open = []; 
+high = []; 
+low = []; 
+close = []; 
+adj = []; 
+vol = []; 
 
 for i = 1:numel(stocks)
-    
+    open = [open stocks(i).Open]; 
+    high = [high stocks(i).High];
+    low = [low stocks(i).Low]; 
+    close = [close stocks(i).Close];
+    adj = [adj stocks(i).AdjClose];
+    vol = [vol stocks(i).Volume];
 end
-
-net = network(
