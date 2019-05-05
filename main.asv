@@ -1,0 +1,8 @@
+stocks = readtable('tickers_st.txt'); 
+stocks = table2array(stocks); 
+
+stocks 
+
+%%
+
+stocks = hist_stock_data('12101997','18092001','tickers_st.txt');
