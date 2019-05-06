@@ -11,7 +11,6 @@ stocks = hist_stock_data(start_date,end_date,tics);
 
 %%
 for i = 1:size(close,1)
-    close_i = close(:,i); 
-    
+    c
     
 end
